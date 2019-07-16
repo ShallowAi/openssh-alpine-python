@@ -2,7 +2,7 @@
 FROM alpine
 
 # Install open-ssh server
-RUN apk add --no-cache openssh-server
+RUN apk add --no-cache openssh-server openssh
 
 # Enable root login
 RUN echo "" >> /etc/ssh/sshd_config && echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
