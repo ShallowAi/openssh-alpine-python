@@ -1,5 +1,5 @@
 # Based on alpine
-FROM alpine
+FROM python:3.6-alpine
 
 # Install open-ssh server
 RUN apk add --no-cache openssh-server openssh
