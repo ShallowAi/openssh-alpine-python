@@ -9,13 +9,14 @@ RUN echo "" >> /etc/ssh/sshd_config && echo "PermitRootLogin yes" >> /etc/ssh/ss
 
 # Environment variable, used to setup root password (instead of having a fixed one)
 ENV SSH_USER root
-ENV SSH_PASS password_pls_change
+ENV SSH_PASS password
+ENV SSH_PORT 22
 
 # Expose port 22 (for SSH)
-EXPOSE 22
+EXPOSE $SSH_PORT
 
 # Copy over entrypoint file
-COPY entry.sh /start.sh
+COPY start.sh /start.sh
 
 # Logging of entrypoint file into autobuilds
 RUN chmod +x /start.sh && cat /entry.sh
