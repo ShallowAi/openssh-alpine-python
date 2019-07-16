@@ -10,10 +10,9 @@ RUN echo "" >> /etc/ssh/sshd_config && echo "PermitRootLogin yes" >> /etc/ssh/ss
 # Environment variable, used to setup user password and port
 ENV SSH_USER root
 ENV SSH_PASS password
-ENV SSH_PORT 22
 
 # Expose port
-EXPOSE $SSH_PORT
+EXPOSE 22
 
 # Copy over entrypoint file
 COPY start.sh /start.sh
