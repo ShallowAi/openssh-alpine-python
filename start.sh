@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Setting up ssh-keygen
 ssh-keygen -A
 
