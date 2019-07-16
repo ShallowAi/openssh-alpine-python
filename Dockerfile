@@ -4,15 +4,15 @@ FROM alpine
 # Install open-ssh server
 RUN apk add --no-cache openssh-server
 
-# Lets enable root login
+# Enable root login
 RUN echo "" >> /etc/ssh/sshd_config && echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 
-# Environment variable, used to setup root password (instead of having a fixed one)
+# Environment variable, used to setup user password and port
 ENV SSH_USER root
 ENV SSH_PASS password
 ENV SSH_PORT 22
 
-# Expose port 22 (for SSH)
+# Expose port
 EXPOSE $SSH_PORT
 
 # Copy over entrypoint file
@@ -21,6 +21,6 @@ COPY start.sh /start.sh
 # Logging of entrypoint file into autobuilds
 RUN chmod +x /start.sh && cat /entry.sh
 
-# Lets setup entry, and command arguments
+# Lets setup, and command arguments
 ENTRYPOINT [ "/start.sh" ]
 CMD ["/usr/sbin/sshd", "-D", "-e", "-f", "/etc/ssh/sshd_config"]
