@@ -19,7 +19,7 @@ EXPOSE $SSH_PORT
 COPY start.sh /start.sh
 
 # Logging of entrypoint file into autobuilds
-RUN chmod +x /start.sh && cat /entry.sh
+RUN chmod +x /start.sh && cat /start.sh
 
 # Lets setup, and command arguments
 ENTRYPOINT [ "/start.sh" ]
