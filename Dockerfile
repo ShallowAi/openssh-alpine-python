@@ -2,7 +2,7 @@
 FROM python:3.6-alpine
 
 # Install open-ssh server
-RUN apk add --no-cache openssh-server openssh
+RUN apk add --no-cache openssh-server
 
 # Enable root login
 RUN echo "" >> /etc/ssh/sshd_config && echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
